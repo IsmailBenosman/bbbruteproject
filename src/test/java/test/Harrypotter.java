@@ -1,4 +1,4 @@
-package bbbruteproject;
+package test;
 
 public class Harrypotter {
 
