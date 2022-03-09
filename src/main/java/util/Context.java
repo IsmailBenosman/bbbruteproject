@@ -1,12 +1,14 @@
 package util;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class Context {
 	
 //L'objet _singleton sera l'unique objet Context de l'appli et contiendra un pointeur vers tous les autres attributs	
 //Obligatoire
 private static Context _singleton=null;	
-
+private EntityManagerFactory emf = Persistence.createEntityManagerFactory("poudlard");
 //Option pour notre Projet//
 //private Compte connected;
 //private IDAOCompte daoCompte = new DAOCompteJDBC();
