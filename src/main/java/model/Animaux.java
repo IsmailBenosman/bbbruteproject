@@ -1,12 +1,12 @@
 package model;
 
-public enum Confiseries {
+public enum Animaux {
 
-	ChocoGrenouiile(1),DragéesSurprises(1),FizWizBiz(1);
+	Chouette(1),Chat(1),Rat(1),Crapaud(1);
 	
 	private double prix;
 
-	private Confiseries(double prix) 
+	private Animaux(double prix) 
 	{
 		this.prix=prix;
 	}
