@@ -14,8 +14,7 @@ body::-webkit-scrollbar
 #logo
 {
   width:10%;
-  height: auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 #banniere
@@ -28,10 +27,8 @@ body::-webkit-scrollbar
 #compte
 {
   background-color: #D8D8D8;
-  display:flex;
-  flex-direction: column;
-  width: 15%;
-  height: 10%;
+  width: 25%;
+  height:100%;
 
 }
 
@@ -46,19 +43,19 @@ width:100%;
 #infoglobal
 {
   display: flex;
-  height: 100%;
+  height: 80%;
 }
 #btn
 {
 display: flex;
-width: 100%;
-height: 20%;
+/* width: 100%;
+height: 100%; */
 }
 #photo
 {
-padding: 20px;
- width:30%;
- height: auto;
+padding: 15px;
+width:20%;
+height: auto;
 
 }
 
@@ -245,8 +242,8 @@ h1
 img {vertical-align: middle;}
 
 .slideshow-container {
-  max-width: 950px;
-  height: 600px;
+  max-width: 45%;
+  height: 65%;
   background-color: black;
   margin: auto;
   position: relative;
@@ -310,6 +307,28 @@ img {vertical-align: middle;}
 
 .active, .dot:hover {
   background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
 }
 
 footer
