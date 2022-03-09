@@ -18,6 +18,21 @@ public class Eleve  extends Compte{
 		this.maison = maison;
 	}
 
+	public Maisons getMaison() {
+		return maison;
+	}
+
+	public void setMaison(Maisons maison) {
+		this.maison = maison;
+	}
+
+	@Override
+	public String toString() {
+		return "Eleve [maison=" + maison + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login
+				+ ", password=" + password + ", naissance=" + naissance + ", solde=" + solde + "]";
+	}
+
+
 
 
 
