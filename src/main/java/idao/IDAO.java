@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IDAO<T,K> {
 
-	String urlBdd="jdbc:mysql://localhost:3306/centerpark";
+	String urlBdd="jdbc:mysql://localhost:3306/poudlard";
 	String loginBdd="root";
 	String passwordBdd="";
 
