@@ -31,9 +31,9 @@ public abstract class Compte {
     protected LocalDate naissance;
     protected double solde;
     
-    @ManyToOne  // X Class pour Y attribut.  X to Y
-	@JoinColumn(name="id_maison")
-	private Maisons maison;
+    /*@ManyToOne  // X Class pour Y attribut.  X to Y
+	@JoinColumn(name="id_maison")*/
+	private String maison;
 //    protected List<Items> paniner;
 //    protected List<Items> iventaire;
     
@@ -45,8 +45,7 @@ public abstract class Compte {
 
 
 	public Compte(String nom, String prenom, String login, String password, LocalDate naissance, double solde,
-			Maisons maison) {
-		super();
+			String maison) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.login = login;
@@ -127,12 +126,12 @@ public abstract class Compte {
 	}
 
 
-	public Maisons getMaison() {
+	public String getMaison() {
 		return maison;
 	}
 
 
-	public void setMaison(Maisons maison) {
+	public void setMaison(String maison) {
 		this.maison = maison;
 	}
 
