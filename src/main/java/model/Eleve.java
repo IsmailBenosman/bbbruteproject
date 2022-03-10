@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue("Eleve")
+@DiscriminatorValue("eleve")
 @Table(name="Eleve")
 public class Eleve  extends Compte{
 

@@ -9,7 +9,9 @@ public class Animalerie extends Boutique{
 
 	@Enumerated(EnumType.STRING)
 	private Animaux animal;
-
+	public Animalerie() {
+		// TODO Auto-generated constructor stub
+	}
 	public Animalerie(Integer id,String nom,String adresse,Animaux animal) {
 		super(id, nom,adresse);
 		this.animal = animal;
@@ -22,5 +24,5 @@ public class Animalerie extends Boutique{
 	public void setAnimal(Animaux animal) {
 		this.animal = animal;
 	}	
-	
+
 }

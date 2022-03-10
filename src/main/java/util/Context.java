@@ -46,14 +46,6 @@ public class Context {
 	return emf;
 	}
 
-	public static Context get_singleton() {
-		return _singleton;
-	}
-
-	public static void set_singleton(Context _singleton) {
-		Context._singleton = _singleton;
-	}
-
 	public IDAOCompte getDAOCompte() {
 		return DAOCompte;
 	}

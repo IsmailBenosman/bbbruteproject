@@ -10,6 +10,9 @@ public class Baguetterie extends Boutique{
 	@Enumerated(EnumType.STRING)
 	private Baguettes baguette;
 
+	public Baguetterie() {
+		// TODO Auto-generated constructor stub
+	}
 	public Baguetterie(Integer id,String nom,String adresse,Baguettes baguette) {
 		super(id, nom,adresse);
 		this.baguette = baguette;
