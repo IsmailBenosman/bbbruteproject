@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 public class Bar extends Boutique{
 
 	private Boisson boisson;
-
+	public Bar() {
+		// TODO Auto-generated constructor stub
+	}
 	public Bar(Integer id, String nom, String adresse, Boisson boisson) {
 		super(id, nom, adresse);
 		this.boisson = boisson;
@@ -19,5 +21,5 @@ public class Bar extends Boutique{
 	public void setBoisson(Boisson boisson) {
 		this.boisson = boisson;
 	}
-	
+
 }
