@@ -2,7 +2,7 @@ package model;
 
 public enum Bonbons {
 
-	ChocoGrenouiile(1),DragéesSurprises(1),FizWizBiz(1);
+	ChocoGrenouiile(1),DragesSurprises(1),FizWizBiz(1);
 	
 	private double prix;
 
