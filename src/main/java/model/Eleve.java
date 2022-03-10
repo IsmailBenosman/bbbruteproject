@@ -16,8 +16,8 @@ public Eleve() {
 }
 
 	public Eleve(String nom, String prenom, String login, String password, LocalDate naissance, double solde,
-			Maisons maison) {
-		super(nom, prenom, login, password, naissance, solde, maison);
+			String maison) {
+		super(nom, prenom, login, password, naissance, solde,maison);
 
 	}
 
