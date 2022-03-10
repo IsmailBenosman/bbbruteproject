@@ -2,35 +2,32 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@DiscriminatorValue("Eleve")
+@Table(name="Eleve")
 public class Eleve  extends Compte{
 
-	private Maisons maison;
+public Eleve() {
 
-	public Eleve(Integer id, String nom, String prenom, String login, String password, LocalDate naissance,
-			double solde, Maisons maison) {
-		super(id, nom, prenom, login, password, naissance, solde);
-		this.maison = maison;
-	}
+}
 
 	public Eleve(String nom, String prenom, String login, String password, LocalDate naissance, double solde,
 			Maisons maison) {
-		super(nom, prenom, login, password, naissance, solde);
-		this.maison = maison;
-	}
+		super(nom, prenom, login, password, naissance, solde, maison);
 
-	public Maisons getMaison() {
-		return maison;
-	}
-
-	public void setMaison(Maisons maison) {
-		this.maison = maison;
 	}
 
 	@Override
 	public String toString() {
-		return "Eleve [maison=" + maison + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login
-				+ ", password=" + password + ", naissance=" + naissance + ", solde=" + solde + "]";
+		return "Eleve [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password=" + password
+				+ ", naissance=" + naissance + ", solde=" + solde + "]";
 	}
+	
+	
 
 
 
