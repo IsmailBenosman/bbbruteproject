@@ -25,7 +25,7 @@ public class DAOCompte implements IDAOCompte {
 		return comptes;
 	}
 
-	public Compte insert(Compte o) {
+	public Compte insert(Compte c) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		em.persist(c);
@@ -34,8 +34,8 @@ public class DAOCompte implements IDAOCompte {
 		return null;
 	}
 
-	public void update(Compte o) {
-		/		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+	public Compte update(Compte c) {
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 
 		try {
 			em.getTransaction().begin();

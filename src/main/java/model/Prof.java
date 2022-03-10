@@ -10,9 +10,9 @@ public class Prof  extends Compte{
 	public Prof() {
 
 	}
-		public Prof (String nom, String prenom, String login, String password, LocalDate naissance, double solde,
-				Maisons maison, int dfjsdf) {
-			super(nom, prenom, login, password, naissance, solde, maison);
+	public Prof(String nom, String prenom, String login, String password, LocalDate naissance, double solde,
+			String maison) {
+		super(nom, prenom, login, password, naissance, solde,maison);
 
 		}
 

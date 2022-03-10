@@ -41,12 +41,17 @@ public class Context {
 		return _singleton;
 	}
 	
-	
-	
-	
 
-	public void setEmf(EntityManagerFactory emf) {
-		this.emf = emf;
+	public EntityManagerFactory getEmf() {
+	return emf;
+	}
+
+	public static Context get_singleton() {
+		return _singleton;
+	}
+
+	public static void set_singleton(Context _singleton) {
+		Context._singleton = _singleton;
 	}
 
 	public IDAOCompte getDAOCompte() {
