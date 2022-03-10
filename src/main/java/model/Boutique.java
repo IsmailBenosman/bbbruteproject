@@ -16,7 +16,9 @@ public abstract class Boutique {
 	protected Integer id;
 	protected String nom;
 	protected String adresse;	
-	
+	public Boutique() {
+		// TODO Auto-generated constructor stub
+	}
 	public Boutique(Integer id, String nom, String adresse) {
 		this.id = id;
 		this.nom = nom;
