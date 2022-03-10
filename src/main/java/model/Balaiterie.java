@@ -9,9 +9,8 @@ public class Balaiterie extends Boutique{
 
 	@Enumerated(EnumType.STRING)
 	private Balais balai;
-	public Balaiterie() {
-		// TODO Auto-generated constructor stub
-	}
+	public Balaiterie() {}
+	
 	public Balaiterie(Integer id,String nom,String adresse,Balais balai) {
 		super(id, nom,adresse);
 		this.balai = balai;

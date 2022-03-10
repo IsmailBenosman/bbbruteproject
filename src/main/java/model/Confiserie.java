@@ -8,6 +8,8 @@ public class Confiserie extends Boutique{
 	@Enumerated(EnumType.STRING)
 	private Bonbons bonbon;
 
+	public Confiserie() {}
+	
 	public Confiserie(Integer id,String nom,String adresse,Bonbons bonbon) {
 		super(id, nom,adresse);
 		this.bonbon = bonbon;
