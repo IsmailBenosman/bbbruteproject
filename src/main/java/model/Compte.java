@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','professeur')")
+@DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','prof')")
 @Table(name="compte")
 public abstract class Compte {
 	
