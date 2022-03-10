@@ -83,7 +83,7 @@ public class App {
 		// TODO Auto-generated method stub
 
 		Eleve e1 = new Eleve("Pierson", "Robin", "rob", "rob", LocalDate.parse("1997-03-18"), 0,"Serpentard");
-		Prof p1 = new Prof("Ye", "Elisabeth", "eli", "eli", LocalDate.parse("1996-11-15"), 10000,"Serdaigle");
+		//Prof p1 = new Prof("Ye", "Elisabeth", "eli", "eli", LocalDate.parse("1996-11-15"), 10000,"Serdaigle");
 		
 		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("poudlard");
 		
@@ -92,7 +92,7 @@ public class App {
 		em.getTransaction().begin();
 		
 		em.persist(e1);
-		em.persist(p1);
+		//em.persist(p1);
 		em.getTransaction().commit();
 
 		em.close();
