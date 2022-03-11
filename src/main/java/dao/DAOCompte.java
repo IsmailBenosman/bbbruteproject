@@ -56,10 +56,10 @@ public class DAOCompte implements IDAOCompte {
 		em.close();
 	}
 
-	public Compte seConnecter(String mail, String password) {
+	public Compte seConnecter(String login, String password) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		Query q = em.createQuery("SELECT c from Compte c where c.mail = :mail and c.password = :password");
-		q.setParameter("mail", mail);
+		Query q = em.createQuery("SELECT c from Compte c where c.mail = :login and c.password = :password");
+		q.setParameter("login", login);
 		q.setParameter("password", password);
 		Compte c=null;
 		try {
