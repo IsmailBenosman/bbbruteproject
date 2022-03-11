@@ -7,9 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import model.Compte;
-import model.Eleve;
-import model.Prof;
+import compte.Compte;
+import compte.Eleve;
+import compte.Prof;
 import util.Context;
 
 public class App {

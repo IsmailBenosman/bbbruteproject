@@ -5,11 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import compte.Maisons;
 import idao.IDAOMaisons;
 import idao.IDAOMaisons;
-import model.Maisons;
-import model.Maisons;
-import model.Maisons;
 import util.Context;
 
 public class DAOMaisons implements IDAOMaisons
