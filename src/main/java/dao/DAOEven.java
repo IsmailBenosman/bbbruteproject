@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import boutique.Boutique;
+import compte.Compte;
+import even.Evenement;
 import idao.IDAOBoutique;
 import idao.IDAOCompte;
 import idao.IDAOEven;
-import model.Boutique;
-import model.Compte;
-import model.Evenement;
 import util.Context;
 
 public class DAOEven implements IDAOEven 

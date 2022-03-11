@@ -5,9 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import boutique.Boutique;
 import idao.IDAOBoutique;
 import idao.IDAOBoutique;
-import model.Boutique;
 import util.Context;
 
 public class DAOBoutique implements IDAOBoutique 
