@@ -58,7 +58,7 @@ public class DAOCompte implements IDAOCompte {
 
 	public Compte seConnecter(String login, String password) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		Query q = em.createQuery("SELECT c from Compte c where c.mail = :login and c.password = :password");
+		Query q = em.createQuery("SELECT c from Compte c where c.login = :login and c.password = :password");
 		q.setParameter("login", login);
 		q.setParameter("password", password);
 		Compte c=null;
