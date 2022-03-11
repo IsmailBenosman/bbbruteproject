@@ -15,6 +15,11 @@ public Eleve() {
 
 }
 
+	public Eleve(Integer id, String nom, String prenom, String login, String password, LocalDate naissance, double solde,
+		String maison) {
+	super(id, nom, prenom, login, password, naissance, solde, maison);
+}
+
 	public Eleve(String nom, String prenom, String login, String password, LocalDate naissance, double solde,
 			String maison) {
 		super(nom, prenom, login, password, naissance, solde,maison);

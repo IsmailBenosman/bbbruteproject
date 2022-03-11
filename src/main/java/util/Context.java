@@ -3,6 +3,7 @@ package util;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import compte.Compte;
 import dao.DAOBoutique;
 import dao.DAOCompte;
 import dao.DAOEven;
@@ -79,6 +80,7 @@ public class Context {
 	}
 
 	public void close() {emf.close();}
-	
+
+
 
 }
