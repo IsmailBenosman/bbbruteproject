@@ -10,13 +10,14 @@ import javax.persistence.Persistence;
 import compte.Compte;
 import compte.Eleve;
 import compte.Prof;
+import idao.IDAOCompte;
 import util.Context;
 
 public class App {
 
 	static Compte connected;
-	/*static IDAOCompte daoCompte = Context.getSingleton().getDAOCompte();
-	static IDAOBoutique daoBoutique = Context.getSingleton().getDAOBoutique();
+	static IDAOCompte daoCompte = Context.getSingleton().getDAOCompte();
+	/*static IDAOBoutique daoBoutique = Context.getSingleton().getDAOBoutique();
 	static IDAEven daoEven = Context.getSingleton().getDAOEven();
 	static IDAOMaisons daoMaisons = Context.getSingleton().getDAOMaisons();*/
 
@@ -51,7 +52,7 @@ public class App {
 		return sc.nextBoolean();
 	}
 	
-	/*public static void menuPrincipal() {
+	public static void menuPrincipal() {
 		System.out.println("Ecole Poudlard");
 		System.out.println("1 - Se connecter");
 		System.out.println("2 - Quitter");
@@ -59,8 +60,8 @@ public class App {
 
 		switch(choix) 
 		{
-		case 1 -> seConnecter();
-		case 2 -> System.exit(0);
+		case 1: seConnecter();
+		case 2: System.exit(0);
 		}
 		menuPrincipal();
 
@@ -69,7 +70,7 @@ public class App {
 	public static void seConnecter() {
 		String login = saisieString("Saisir votre mail");
 		String password = saisieString("Saisir votre password");
-		connected=daoCompte.seConnecter(mail,password);
+		connected=daoCompte.seConnecter(login,password);
 		//Context.getSingleton().setConnected(connected);
 		
 		if(connected instanceof Eleve) {menuEleve();}
@@ -78,7 +79,48 @@ public class App {
 
 		else {System.out.println("Identifiants invalides");}
 
-	}*/
+	}
+		public static void menuEleve() {
+			System.out.println("Menu Eleve : ");
+			System.out.println("1 - Gestion des Animaux");
+			System.out.println("2 - Gestion des Activités");
+			System.out.println("3 - Gestion des Vehicules");
+			System.out.println("4 - Gestion des Reservations");
+			System.out.println("5 - Se deconnecter");
+			/*int choix = saisieInt("Choisir un menu");
+
+			switch(choix) 
+			{
+			case 1 : gestionAnimaux();break;
+			case 2 : gestionActivites();break;
+			case 3 : gestionVehicules();break;
+			case 4 : gestionReservations();break;
+			case 5 : connected=null;menuPrincipal();break;
+			}*/
+
+			menuEleve();
+	}
+		
+		public static void menuProfesseur() {
+			System.out.println("Menu Professeur : ");
+			System.out.println("1 - Gestion des Animaux");
+			System.out.println("2 - Gestion des Activités");
+			System.out.println("3 - Gestion des Vehicules");
+			System.out.println("4 - Gestion des Reservations");
+			System.out.println("5 - Se deconnecter");
+			/*int choix = saisieInt("Choisir un menu");
+
+			switch(choix) 
+			{
+			case 1 : gestionAnimaux();break;
+			case 2 : gestionActivites();break;
+			case 3 : gestionVehicules();break;
+			case 4 : gestionReservations();break;
+			case 5 : connected=null;menuPrincipal();break;
+			}*/
+
+			menuProfesseur();
+		}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
