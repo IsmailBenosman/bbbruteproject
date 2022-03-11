@@ -30,6 +30,7 @@ public abstract class Compte {
     protected String password;
     protected LocalDate naissance;
     protected double solde;
+    protected String img;
     
     /*@ManyToOne  // X Class pour Y attribut.  X to Y
 	@JoinColumn(name="id_maison")*/
@@ -157,6 +158,16 @@ public abstract class Compte {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+
+
+	public String getImg() {
+		return img;
+	}
+
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 
