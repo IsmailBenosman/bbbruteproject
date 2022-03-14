@@ -10,6 +10,7 @@ import dao.DAOEven;
 import dao.DAOMaisons;
 import idao.IDAOBoutique;
 import idao.IDAOCompte;
+import idao.IDAOEleve;
 import idao.IDAOEven;
 import idao.IDAOMaisons;
 public class Context {
@@ -21,6 +22,7 @@ public class Context {
 	private static Context _singleton=null;	
 
 	private IDAOCompte DAOCompte = new DAOCompte();
+	private IDAOEleve DAOEleve = new dao.DAOEleve();
 	//Option pour notre Projet//
 	//private Compte connected;
 	private IDAOBoutique  DAOBoutique = new DAOBoutique();
@@ -79,6 +81,13 @@ public class Context {
 		DAOMaisons = dAOMaisons;
 	}
 
+	public IDAOEleve getDAOEleve() {
+		return DAOEleve;
+	}
+
+	public void setDAOEleve(IDAOEleve dAOEleve) {
+		DAOEleve = dAOEleve;
+	}
 	public void close() {emf.close();}
 
 

@@ -11,12 +11,14 @@ import compte.Compte;
 import compte.Eleve;
 import compte.Prof;
 import idao.IDAOCompte;
+import idao.IDAOEleve;
 import util.Context;
 
 public class App {
 
 	static Compte connected;
 	static IDAOCompte daoCompte = Context.getSingleton().getDAOCompte();
+	static IDAOEleve daoEleve = Context.getSingleton().getDAOEleve();
 	/*static IDAOBoutique daoBoutique = Context.getSingleton().getDAOBoutique();
 	static IDAEven daoEven = Context.getSingleton().getDAOEven();
 	static IDAOMaisons daoMaisons = Context.getSingleton().getDAOMaisons();*/
@@ -122,8 +124,9 @@ public class App {
 			menuProfesseur();
 		}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+//		System.out.println(daoEleve.findAll());
+//		// TODO Auto-generated method stub
+//
 //		Eleve e1 = new Eleve("Pierson", "Robin", "rob", "rob", LocalDate.parse("1997-03-18"), 0,"Serpentard");
 //		Eleve e2 = new Eleve("Vong", "Michel", "michel", "michel", LocalDate.parse("1992-03-18"), 0,"Poufsouffle");
 //		Prof p1 = new Prof("Ye", "Elisabeth", "eli", "eli", LocalDate.parse("1996-11-15"), 10000,"Serdaigle");
@@ -135,12 +138,11 @@ public class App {
 //		EntityManager em  = emf.createEntityManager();
 //		
 //		em.getTransaction().begin();
-//		
-////		em.persist(e1);
-////		em.persist(e2);
-////		em.persist(p1);
-////		em.persist(p2);
-////		em.persist(p3);
+//		em.persist(e1);
+//		em.persist(e2);
+//		em.persist(p1);
+//		em.persist(p2);
+//		em.persist(p3);
 //		em.getTransaction().commit();
 //
 //		em.close();
