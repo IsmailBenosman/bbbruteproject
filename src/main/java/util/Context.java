@@ -8,11 +8,14 @@ import dao.DAOBoutique;
 import dao.DAOCompte;
 import dao.DAOEven;
 import dao.DAOMaisons;
+import dao.DAOAdmin;
+import idao.IDAOAdmin;
 import idao.IDAOBoutique;
 import idao.IDAOCompte;
 import idao.IDAOEleve;
 import idao.IDAOEven;
 import idao.IDAOMaisons;
+
 public class Context {
 
 	//L'objet _singleton sera l'unique objet Context de l'appli et contiendra un pointeur vers tous les autres attributs	
@@ -28,6 +31,7 @@ public class Context {
 	private IDAOBoutique  DAOBoutique = new DAOBoutique();
 	private IDAOEven DAOEven = new DAOEven();
 	private IDAOMaisons DAOMaisons= new DAOMaisons();
+	private IDAOAdmin DAOAdmin= new DAOAdmin();
 
 
 	//Obligatoire
@@ -43,10 +47,10 @@ public class Context {
 
 		return _singleton;
 	}
-	
+
 
 	public EntityManagerFactory getEmf() {
-	return emf;
+		return emf;
 	}
 
 	public IDAOCompte getDAOCompte() {
@@ -88,6 +92,16 @@ public class Context {
 	public void setDAOEleve(IDAOEleve dAOEleve) {
 		DAOEleve = dAOEleve;
 	}
+	
+	
+	public IDAOAdmin getDAOAdmin() {
+		return DAOAdmin;
+	}
+
+	public void setDAOAdmin(IDAOAdmin dAOAdmin) {
+		DAOAdmin = dAOAdmin;
+	}
+
 	public void close() {emf.close();}
 
 

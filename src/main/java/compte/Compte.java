@@ -1,6 +1,7 @@
 package compte;
 
 import java.time.LocalDate;
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -11,12 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','prof')")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','prof','admin')")
 @Table(name="compte")
 public abstract class Compte {
 	
@@ -31,7 +33,10 @@ public abstract class Compte {
     protected LocalDate naissance;
     protected double solde;
     protected String img;
-    
+   @Lob
+    protected byte[] photo;
+  @Column(columnDefinition = "TEXT")
+   	protected String photoEncoded64;
     /*@ManyToOne  // X Class pour Y attribut.  X to Y
 	@JoinColumn(name="id_maison")*/
 	private String maison;
@@ -168,6 +173,28 @@ public abstract class Compte {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+		this.photoEncoded64=Base64.getEncoder().encodeToString(photo);
+	}
+
+
+	
+	public String getPhotoEncoded64() {
+		return photoEncoded64;
+	}
+
+
+	public void setPhotoEncoded64(String photoEncoded64) {
+		this.photoEncoded64 = photoEncoded64;
 	}
 
 
