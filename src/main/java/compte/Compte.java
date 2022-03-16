@@ -1,6 +1,7 @@
 package compte;
 
 import java.time.LocalDate;
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -11,12 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','prof')")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','prof','admin')")
 @Table(name="compte")
 public abstract class Compte {
 	
@@ -31,9 +33,6 @@ public abstract class Compte {
     protected LocalDate naissance;
     protected double solde;
     protected String img;
-    
-    /*@ManyToOne  // X Class pour Y attribut.  X to Y
-	@JoinColumn(name="id_maison")*/
 	private String maison;
 //    protected List<Items> paniner;
 //    protected List<Items> iventaire;
@@ -169,6 +168,9 @@ public abstract class Compte {
 	public void setImg(String img) {
 		this.img = img;
 	}
+
+
+	
 
 
 	@Override

@@ -1,5 +1,7 @@
 package idao;
 
-public interface IDAOBoutique {
+import boutique.Boutique;
+
+public interface IDAOBoutique extends IDAO<Boutique,Integer>{
 
 }
