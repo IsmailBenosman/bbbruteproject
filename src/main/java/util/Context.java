@@ -69,13 +69,14 @@ public class Context {
 		DAOBoutique = dAOBoutique;
 	}
 
-	public IDAOEven getDAOEven() {
-		return DAOEven;
-	}
 
-	public void setDAOEven(IDAOEven dAOEven) {
-		DAOEven = dAOEven;
-	}
+	public IDAOEven getDAOEven() { 
+		return DAOEven; }
+
+	public void setDAOEven(IDAOEven dAOEven) { 
+
+		DAOEven = dAOEven; }
+
 
 	public IDAOMaisons getDAOMaisons() {
 		return DAOMaisons;
@@ -92,8 +93,8 @@ public class Context {
 	public void setDAOEleve(IDAOEleve dAOEleve) {
 		DAOEleve = dAOEleve;
 	}
-	
-	
+
+
 	public IDAOAdmin getDAOAdmin() {
 		return DAOAdmin;
 	}

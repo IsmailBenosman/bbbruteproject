@@ -33,10 +33,6 @@ public abstract class Compte {
     protected LocalDate naissance;
     protected double solde;
     protected String img;
-   @Lob
-    protected byte[] photo;
-    /*@ManyToOne  // X Class pour Y attribut.  X to Y
-	@JoinColumn(name="id_maison")*/
 	private String maison;
 //    protected List<Items> paniner;
 //    protected List<Items> iventaire;
@@ -174,15 +170,7 @@ public abstract class Compte {
 	}
 
 
-	public byte[] getPhoto() {
-		return photo;
-	}
-
-
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
-	}
-
+	
 
 
 	@Override
