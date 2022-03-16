@@ -7,7 +7,6 @@ import compte.Compte;
 import dao.DAOBoutique;
 import dao.DAOCompte;
 import dao.DAOEven;
-import dao.DAOMaisons;
 import dao.DAOAdmin;
 import idao.IDAOAdmin;
 import idao.IDAOBoutique;
@@ -30,7 +29,6 @@ public class Context {
 	//private Compte connected;
 	private IDAOBoutique  DAOBoutique = new DAOBoutique();
 	private IDAOEven DAOEven = new DAOEven();
-	private IDAOMaisons DAOMaisons= new DAOMaisons();
 	private IDAOAdmin DAOAdmin= new DAOAdmin();
 
 
@@ -76,15 +74,6 @@ public class Context {
 	public void setDAOEven(IDAOEven dAOEven) { 
 
 		DAOEven = dAOEven; }
-
-
-	public IDAOMaisons getDAOMaisons() {
-		return DAOMaisons;
-	}
-
-	public void setDAOMaisons(IDAOMaisons dAOMaisons) {
-		DAOMaisons = dAOMaisons;
-	}
 
 	public IDAOEleve getDAOEleve() {
 		return DAOEleve;
