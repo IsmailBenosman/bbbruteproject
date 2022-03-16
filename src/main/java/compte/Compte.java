@@ -35,8 +35,6 @@ public abstract class Compte {
     protected String img;
    @Lob
     protected byte[] photo;
-  @Column(columnDefinition = "TEXT")
-   	protected String photoEncoded64;
     /*@ManyToOne  // X Class pour Y attribut.  X to Y
 	@JoinColumn(name="id_maison")*/
 	private String maison;
@@ -183,19 +181,8 @@ public abstract class Compte {
 
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
-		this.photoEncoded64=Base64.getEncoder().encodeToString(photo);
 	}
 
-
-	
-	public String getPhotoEncoded64() {
-		return photoEncoded64;
-	}
-
-
-	public void setPhotoEncoded64(String photoEncoded64) {
-		this.photoEncoded64 = photoEncoded64;
-	}
 
 
 	@Override
