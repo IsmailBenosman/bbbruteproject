@@ -1,22 +1,22 @@
 package test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import compte.Admin;
 import compte.Compte;
 import compte.Eleve;
 import compte.Prof;
-
 import idao.IDAOCompte;
 import idao.IDAOEleve;
-import idao.IDAOProf;
-import idao.IDAOAdmin;
-
+import module.Cours;
+import module.Modules;
 import util.Context;
 
 public class App {
@@ -74,30 +74,55 @@ public class App {
 //		System.out.println(daoEleve.findAll());
 //		// TODO Auto-generated method stub
 //
-		/*Eleve e1 = new Eleve("Pierson", "Robin", "rob", "rob", LocalDate.parse("1997-03-18"), 0,"Serpentard",0);
-		Eleve e2 = new Eleve("Vong", "Michel", "michel", "michel", LocalDate.parse("1992-03-18"), 0,"Poufsouffle",0);
-		Prof p1 = new Prof("Ye", "Elisabeth", "eli", "eli", LocalDate.parse("1996-11-15"), 10000,"Serdaigle");
-		Prof p2 = new Prof("Benosman", "Ismaï¿½l", "isma", "isma", LocalDate.parse("1996-02-16"), 1000000,"Poufsouffle");
-		Prof p3 = new Prof("Pinel", "Matthieu", "matt", "matt", LocalDate.parse("1998-02-23"), 1000000,"Griffondor");
+		Eleve e1 = new Eleve("Pierson", "Robin", "rob", "rob", LocalDate.parse("1997-03-18"), 0,"Serpentard");
+//		Eleve e2 = new Eleve("Vong", "Michel", "michel", "michel", LocalDate.parse("1992-03-18"), 0,"Poufsouffle");
+//		Prof p1 = new Prof("Ye", "Elisabeth", "eli", "eli", LocalDate.parse("1996-11-15"), 10000,"Serdaigle");
+		Prof p2 = new Prof("Benosman", "Ismaïl", "isma", "isma", LocalDate.parse("1996-02-16"), 1000000,"Poufsouffle");
+//		Prof p3 = new Prof("Pinel", "Matthieu", "matt", "matt", LocalDate.parse("1998-02-23"), 1000000,"Griffondor");
+//		
+//		Admin a = new Admin("Abid", "Jordan", "jordan", "jordan", LocalDate.parse("1993-02-23"), 900000000,"Griffondor");
+//		
+//		System.out.println(a);
 		
-		Admin a = new Admin("Abid", "Jordan", "jordan", "jordan", LocalDate.parse("1993-02-23"), 900000000,"Griffondor");
 		
-		System.out.println(a);
-		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("poudlard");
-	
-		EntityManager em  = emf.createEntityManager();
+		Cours c1 = new Cours("Botanique");
+		Cours c2 = new Cours("Potion");
+		c1.setProfesseur(p2);
+		c2.setProfesseur(p2);
+		List<Cours> uE = new ArrayList();
+		Collections.addAll(uE, c1, c2);
+		p2.setuE(uE);
 		
-		em.getTransaction().begin();
-		em.persist(e1);
-		em.persist(e2);
-		em.persist(p1);
-		em.persist(p2);
-		em.persist(p3);
-		em.persist(a);
-		em.getTransaction().commit();
+		Modules m1 = new Modules(20, "Mouais, c'est pas mal",c1);
+		Modules m2 = new Modules(0, "Ah ouais, ok.",c2);
+		List<Modules> mesCours = new ArrayList();
+		mesCours.add(m1);
+		mesCours.add(m2);
+		e1.setMesCours(mesCours);
+		
+		System.out.println(c1);
+//		System.out.println(uE);
+		
+//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("poudlard");
+//	
+//		EntityManager em  = emf.createEntityManager();
+//		
+//		em.getTransaction().begin();
+//		em.persist(c1);
+//		em.persist(c2);
+//		em.persist(m1);
+//		em.persist(m2);
+////		em.persist(e1);
+////		em.persist(e2);
+////		em.persist(p1);
+////		em.persist(p2);
+////		em.persist(p3);
+////		em.persist(a);
+//		
+//		em.getTransaction().commit();
 
-		em.close();
-		emf.close();*/
+//		em.close();
+//		emf.close();
 	}
 
 
