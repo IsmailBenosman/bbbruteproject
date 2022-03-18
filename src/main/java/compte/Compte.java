@@ -46,7 +46,6 @@ public abstract class Compte {
 
 	public Compte(Integer id, String nom, String prenom, String login, String password, LocalDate naissance,
 			double solde, String maison) {
-		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
