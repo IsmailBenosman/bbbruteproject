@@ -32,7 +32,6 @@ public abstract class Evenement {
 	}
 
 	public Evenement(String nomEven, LocalDate date, LocalTime heure) {
-		super();
 		this.nomEven = nomEven;
 		this.date = date;
 		this.heure = heure;
