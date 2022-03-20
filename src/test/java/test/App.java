@@ -76,18 +76,18 @@ public class App {
 	}
 		
 	public static void main(String[] args) {
-//		System.out.println(daoEleve.findAll());
-//		// TODO Auto-generated method stub
-//
+		System.out.println(daoEleve.findAll());
+		// TODO Auto-generated method stub
+
 		Eleve e1 = new Eleve("Pierson", "Robin", "rob", "rob", LocalDate.parse("1997-03-18"), 0,"Serpentard");
 		Eleve e2 = new Eleve("Vong", "Michel", "michel", "michel", LocalDate.parse("1992-03-18"), 0,"Poufsouffle");
 		Prof p1 = new Prof("Ye", "Elisabeth", "eli", "eli", LocalDate.parse("1996-11-15"), 10000,"Serdaigle");
 		Prof p2 = new Prof("Benosman", "Ismaïl", "isma", "isma", LocalDate.parse("1996-02-16"), 1000000,"Poufsouffle");
 		Prof p3 = new Prof("Pinel", "Matthieu", "matt", "matt", LocalDate.parse("1998-02-23"), 1000000,"Griffondor");
-//		
+		
 		Admin a = new Admin("Abid", "Jordan", "jordan", "jordan", LocalDate.parse("1993-02-23"), 900000000,"Griffondor");
-//		
-		System.out.println(a);
+		
+
 		
 		
 		Cours c1 = new Cours("Botanique");
@@ -97,22 +97,23 @@ public class App {
 		List<Cours> uE = new ArrayList();
 		Collections.addAll(uE, c1, c2);
 		p2.setuE(uE);
+		
 		List <Eleve> liste_e = new ArrayList();
 		Collections.addAll(liste_e, e1, e2);
 		Even_Tournois T1 = new Even_Tournois("Trois_Sorciers", LocalDate.parse("2022-06-10"), LocalTime.parse("10:00:00"), liste_e);
 		Even_Bal E1 = new Even_Bal("Bal_de_Noel",LocalDate.parse("2022-12-20"),LocalTime.parse("20:00:00"),liste_e);
+		
 		Modules m1 = new Modules(20, "Mouais, c'est pas mal",c1);
 		Modules m2 = new Modules(0, "Ah ouais, ok.",c2);
+		m1.setEleve(e1);
+		m2.setEleve(e1);
+		
 		List<Modules> mesCours = new ArrayList();
-		mesCours.add(m1);
-		mesCours.add(m2);
+		Collections.addAll(mesCours, m1,m2);
 		e1.setMesCours(mesCours);
+	
 		
-		System.out.println(T1);
-		System.out.println(E1);
-		System.out.println(uE);
-		
-		/*EntityManagerFactory emf = Persistence.createEntityManagerFactory("poudlard");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("poudlard");
 	
 		EntityManager em  = emf.createEntityManager();
 		
@@ -129,11 +130,11 @@ public class App {
 		em.persist(p2);
 		em.persist(p3);
 		em.persist(a);
-		
+//		
 		em.getTransaction().commit();
 
-		em.close();
-		emf.close();*/
+//		em.close();
+//		emf.close();
 	}
 
 
