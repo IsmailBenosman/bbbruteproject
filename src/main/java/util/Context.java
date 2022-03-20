@@ -8,12 +8,14 @@ import dao.DAOBoutique;
 import dao.DAOCompte;
 import dao.DAOEven;
 import dao.DAOAdmin;
+import dao.DAOModule;
 import idao.IDAOAdmin;
 import idao.IDAOBoutique;
 import idao.IDAOCompte;
 import idao.IDAOEleve;
 import idao.IDAOEven;
 import idao.IDAOMaisons;
+import idao.IDAOModule;
 
 public class Context {
 
@@ -30,6 +32,7 @@ public class Context {
 	private IDAOBoutique  DAOBoutique = new DAOBoutique();
 	private IDAOEven DAOEven = new DAOEven();
 	private IDAOAdmin DAOAdmin= new DAOAdmin();
+	private IDAOModule DAOModule= new DAOModule();
 
 
 	//Obligatoire
@@ -90,6 +93,28 @@ public class Context {
 
 	public void setDAOAdmin(IDAOAdmin dAOAdmin) {
 		DAOAdmin = dAOAdmin;
+	}
+
+	
+	
+	public static Context get_singleton() {
+		return _singleton;
+	}
+
+	public static void set_singleton(Context _singleton) {
+		Context._singleton = _singleton;
+	}
+
+	public IDAOModule getDAOModule() {
+		return DAOModule;
+	}
+
+	public void setDAOModule(IDAOModule dAOModule) {
+		DAOModule = dAOModule;
+	}
+
+	public void setEmf(EntityManagerFactory emf) {
+		this.emf = emf;
 	}
 
 	public void close() {emf.close();}
