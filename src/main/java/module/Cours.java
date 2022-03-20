@@ -1,16 +1,21 @@
 package module;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import compte.Prof;
 
 
 @Entity
+@DiscriminatorValue("cours")
+@Table(name="cours")
 public class Cours {
 		
 		@Id
@@ -20,6 +25,7 @@ public class Cours {
 		
 		
 		@ManyToOne
+		@JoinColumn(name="professeur_fk")
 		private Prof professeur;
 		
 		@OneToOne

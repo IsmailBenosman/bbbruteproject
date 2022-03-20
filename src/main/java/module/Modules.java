@@ -1,16 +1,22 @@
 package module;
 
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import compte.Eleve;
 
 @Entity
+@DiscriminatorValue("module")
+@Table(name = "module")
 public class Modules {
 
 	@Id
@@ -24,6 +30,7 @@ public class Modules {
 	private Cours cours;
 
 	@ManyToOne
+	@JoinColumn(name="eleve_fk")
 	private Eleve eleve;
 
 	public Modules() {

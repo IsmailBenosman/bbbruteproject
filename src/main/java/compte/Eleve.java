@@ -5,24 +5,22 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import module.Modules;
 
 
 @Entity
 @DiscriminatorValue("eleve")
+@Table(name = "eleve")
 public class Eleve  extends Compte{
 	
 
-  	@OneToMany
-	@JoinTable(
-			name="bulletins",
-			joinColumns = @JoinColumn(name="eleve"),
-			inverseJoinColumns = @JoinColumn(name="module")
-			)
+  	@OneToMany(mappedBy = "eleve", fetch = FetchType.EAGER)
 	private List<Modules> mesCours;
 
 
