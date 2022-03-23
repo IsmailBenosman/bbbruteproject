@@ -11,10 +11,10 @@ import javax.persistence.OneToMany;
 import compte.Eleve;
 
 @Entity
-@DiscriminatorValue("even_tournois")
+@DiscriminatorValue("tournois")
 public class Even_Tournois extends Evenement{
 
-	@OneToMany
+	@OneToMany(mappedBy="tournoi")
 	private List<Eleve> participant;
 	
 	public Even_Tournois() {}

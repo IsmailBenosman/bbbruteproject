@@ -14,7 +14,7 @@ import compte.Eleve;
 @DiscriminatorValue("even_banquet")
 public class Even_Banquet extends Evenement{
 
-	@OneToMany
+	@OneToMany(mappedBy="banquet")
 	private List <Eleve> invite;
 	
 	public Even_Banquet() {}

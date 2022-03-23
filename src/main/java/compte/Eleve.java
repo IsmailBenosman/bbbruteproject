@@ -8,9 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import even.Even_Bal;
+import even.Even_Banquet;
+import even.Even_Tournois;
 import module.Modules;
 
 
@@ -23,8 +27,18 @@ public class Eleve  extends Compte{
   	@OneToMany(mappedBy = "eleve", fetch = FetchType.EAGER)
 	private List<Modules> mesCours;
 
-
-	public Eleve() {
+  	@JoinColumn(name="participant")
+  	@ManyToOne
+  	private Even_Tournois tournoi;
+	
+  	@JoinColumn(name="participant")
+  	@ManyToOne
+  	private Even_Bal bal;
+  	
+  	@JoinColumn(name="participant")
+  	@ManyToOne
+  	private Even_Banquet banquet;
+  	public Eleve() {
 
 	}
 	public Eleve(Integer id, String nom, String prenom, String login, String password, LocalDate naissance, double solde,
