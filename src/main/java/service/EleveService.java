@@ -2,6 +2,10 @@ package service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
 import compte.Eleve;
 import exception.EleveException;
 import repositories.EleveRepository;
@@ -9,6 +13,13 @@ import repositories.ModuleRepository;
 
 @Service
 public class EleveService {
+	
+	
+	@Autowired
+	private EleveRepository eleveRepository;
+	@Autowired
+	private ModuleRepository moduleRepository;
+	
 
 	public void create(Eleve e) {
 		if(e.getId()!=null){ 
@@ -21,7 +32,7 @@ public class EleveService {
 		if(e.getPassword().isEmpty()) {
 			throw new EleveException("Mot de passe manquant");
 		}
-		EleveRepository.insert(e);
+		eleveRepository.save(e);
 	}
 
 	public void update(Eleve e) {
@@ -34,33 +45,32 @@ public class EleveService {
 		if(e.getPassword().isEmpty()) {
 			throw new EleveException("Mot de passe manquant");
 		}
-		EleveRepository.update(e);
+		eleveRepository.save(e);
 	}
-}
 
 public List<Eleve> getAll() {
-	return EleveRepository.findAll();
+	return eleveRepository.findAll();
 }
 public Eleve getById (Integer id) {
-	return EleveRepository.findById(id).orElseThrow(()->{
+	return eleveRepository.findById(id).orElseThrow(()->{
 		throw new EleveException("numero inconnu");
-	}	);
+	});
 }
 
 public Eleve findByMaison (Integer id) {
-	return EleveRepository.findByMaison(id).orElseThrow(()->{
-		throw new EleveException("numero inconnu");
+	return eleveRepository.findByMaison(id).orElseThrow(()->{
+		throw new EleveException("Numero étudiant non attribué");
 	}	);
 }	
 
-public void delete (Eleve e) {
-	// il va chercher un eleve et suppr avec les cours qu'il a --> le supprimer de la liste des participant d'un cours (module unique à l'eleve)
-	Eleve eleveEnBaseAvecCours=getByIdWithModule(c.getNumero());
-	ModuleRepository.deleteAll(eleveEnBaseAvecCours.getMesCours());
-	EleveRepository.delete(eleveEnBaseAvecCours);
-	
-}		
 
+public void delete (Eleve e) {
+	// suppr eleve avec le module
+	Eleve eleveEnBase = getById(e.getId());
+	moduleRepository.deleteByEleve(eleveEnBase);
+	eleveRepository.delete(eleveEnBase);
+	
+}
 
 public void deleteById (Integer id) {
 	Eleve eleve=new Eleve();
