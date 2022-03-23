@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import centerpark.repositories.ReservationRepository;
 import compte.Eleve;
 import compte.Prof;
 import exception.ProfException;

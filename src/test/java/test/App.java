@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import compte.Admin;
 import compte.Compte;
@@ -113,7 +112,7 @@ public class App {
 		e1.setMesCours(mesCours);
 	
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("poudlard");
+		//EntityManagerFactory emf = createEntityManagerFactory("poudlard");
 	
 		EntityManager em  = emf.createEntityManager();
 		
@@ -133,8 +132,8 @@ public class App {
 //		
 		em.getTransaction().commit();
 
-//		em.close();
-//		emf.close();
+		em.close();
+		emf.close();
 	}
 
 

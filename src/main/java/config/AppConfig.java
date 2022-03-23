@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"dao"})
+@ComponentScan({"idao","service","boutique","compte","config","dao","even","module"})
 @EnableJpaRepositories({ "repositories" })
 public class AppConfig {
 
@@ -35,11 +35,11 @@ public class AppConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("model");
+		emf.setPackagesToScan("idao","service","boutique","compte","config","dao","even","module");
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		Properties jpaProperties = new Properties();
 		jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create");
 		jpaProperties.setProperty("hibernate.show_sql", "true");
 		jpaProperties.setProperty("hibernate.format_sql", "true");
 		emf.setJpaProperties(jpaProperties);
