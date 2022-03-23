@@ -7,7 +7,11 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< Updated upstream
 import compte.Eleve;
+=======
+
+>>>>>>> Stashed changes
 import compte.Prof;
 import exception.ProfException;
 import repositories.ProfRepository;
@@ -19,10 +23,10 @@ public class ProfService {
 	@Autowired
 	private ProfRepository profRepository;
 	
-	public Eleve insert(Eleve el) {
+	public Prof insert(Prof pf) {
 		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		em.persist(el);
+		em.persist(pf);
 		em.getTransaction().commit();
 		em.close();
 		return null;
