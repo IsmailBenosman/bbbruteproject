@@ -10,6 +10,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 import org.springframework.stereotype.Component;
 
@@ -46,7 +47,7 @@ public abstract class Boutique {
 	}
 	@JsonView(JsonViews.Common.class)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Integer id;
 	
 	@JsonView(JsonViews.Common.class)
@@ -57,6 +58,9 @@ public abstract class Boutique {
 	
 	@OneToMany(mappedBy="boutique")
 	protected List<Produit> produit;
+	
+	@Version
+	private Version version;
 	
 	public Boutique() {}
 	
@@ -83,6 +87,18 @@ public abstract class Boutique {
 	}
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+	public List<Produit> getProduit() {
+		return produit;
+	}
+	public void setProduit(List<Produit> produit) {
+		this.produit = produit;
+	}
+	public Version getVersion() {
+		return version;
+	}
+	public void setVersion(Version version) {
+		this.version = version;
 	}
 	
 	
