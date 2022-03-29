@@ -48,25 +48,6 @@ public class BoutiqueService {
 	public List<Boutique> getAll() {
 		return boutiqueRepository.findAll();
 	}
-	
-	public List<Boutique> getAllAnimals() {
-		return boutiqueRepository.findAllAnimals();
-	}
-	public List<Boutique> getAllBaguettes() {
-		return boutiqueRepository.findAllBaguettes();
-	}
-
-	public List<Boutique> getAllConfiseries() {
-		return boutiqueRepository.findAllConfiseries();
-	}
-
-	public List<Boutique> getAllBoissons() {
-		return boutiqueRepository.findAllBoissons();
-	}
-
-	public List<Boutique> getAllBalais() {
-		return boutiqueRepository.findAllBalais();
-	}
 
 
 	public Boutique getById(Integer id) {
@@ -76,7 +57,6 @@ public class BoutiqueService {
 	public Boutique save(Boutique boutique) {
 		if (boutique.getId() != null) {
 			Boutique boutiqueEnBase = getById(boutique.getId());
-			boutique.setVersion(boutiqueEnBase.getVersion());
 		}
 		return boutiqueRepository.save(boutique);
 	}

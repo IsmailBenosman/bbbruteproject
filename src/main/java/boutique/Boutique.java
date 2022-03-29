@@ -58,10 +58,7 @@ public abstract class Boutique {
 	
 	@OneToMany(mappedBy="boutique")
 	protected List<Produit> produit;
-	
-	@Version
-	private Version version;
-	
+
 	public Boutique() {}
 	
 	public Boutique(Integer id, String nom, String adresse) {
@@ -94,12 +91,6 @@ public abstract class Boutique {
 	public void setProduit(List<Produit> produit) {
 		this.produit = produit;
 	}
-	public Version getVersion() {
-		return version;
-	}
-	public void setVersion(Version version) {
-		this.version = version;
-	}
-	
+
 	
 }
