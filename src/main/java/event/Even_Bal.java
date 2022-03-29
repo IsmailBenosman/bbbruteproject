@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import compte.Eleve;
 
 @Entity
-@Table(name="banquet")
+@Table(name="bal")
 public class Even_Bal extends Evenement{
 
 	@OneToMany(mappedBy="bal")
