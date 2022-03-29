@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import compte.Eleve;
 
 @Entity
-@DiscriminatorValue("even_banquet")
+@Table(name="banquet")
 public class Even_Banquet extends Evenement{
 
 	@OneToMany(mappedBy="banquet")
