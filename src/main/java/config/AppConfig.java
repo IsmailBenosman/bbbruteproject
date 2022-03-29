@@ -27,8 +27,8 @@ public class AppConfig {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/poudlard?serverTimezone=Europe/Paris");
+		dataSource.setPassword("root");
+		dataSource.setUrl("jdbc:mysql://localhost:8889/poudlard?serverTimezone=Europe/Paris");
 		return dataSource;
 	}
 	@Bean
