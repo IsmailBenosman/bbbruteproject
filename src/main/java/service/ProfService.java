@@ -7,15 +7,10 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< Updated upstream
-import compte.Eleve;
-=======
-
->>>>>>> Stashed changes
 import compte.Prof;
 import exception.ProfException;
 import repositories.ProfRepository;
-import util.Context;
+
 
 @Service
 public class ProfService {
@@ -23,15 +18,14 @@ public class ProfService {
 	@Autowired
 	private ProfRepository profRepository;
 	
-	public Prof insert(Prof pf) {
-		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		em.persist(pf);
-		em.getTransaction().commit();
-		em.close();
-		return null;
+	/*
+	 * public Prof insert(Prof pf) { EntityManager em =
+	 * Context.getSingleton().getEmf().createEntityManager();
+	 * em.getTransaction().begin(); em.persist(pf); em.getTransaction().commit();
+	 * em.close(); return null;
+	 
 		
-	}	
+	}	*/
 	public void create(Prof pf) {
 		if (pf.getId() != null) {
 			throw new ProfException("l'id ne doit pas etre defini");
