@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import even.Evenement;
+import compte.Eleve;
+import event.Evenement;
 import exception.ModuleException;
 import repositories.EvenementRepository;
 
@@ -33,9 +34,22 @@ public class EvenementService {
 			throw new ModuleException("numero inconnu");
 		});
 	}
-	
+
 	public void delete(Evenement e) {
 		evenementRepository.delete(e);
 	}
 
+	public void delete(Integer id) {
+
+
+	}
+
+	public Evenement save(Evenement evenement) {
+		if (evenement.getId() != null) {
+			Evenement eleveEnBase = getById(evenement.getId());
+			evenement.setVersion(eleveEnBase.getVersion());
+		}
+		return evenementRepository.save(evenement);
+
+	}
 }

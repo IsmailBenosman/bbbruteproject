@@ -12,9 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import even.Even_Bal;
-import even.Even_Banquet;
-import even.Even_Tournois;
+import event.Even_Bal;
+import event.Even_Banquet;
+import event.Even_Tournois;
 import module.Modules;
 
 

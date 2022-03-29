@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,34 +11,49 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Version;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "evenements",columnDefinition = "ENUM('even_tournois','even_banquet', 'even_bal')")
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY,property = "type")
+@JsonSubTypes({
+	@Type(value=Even_Bal.class,name="bal"),
+	@Type(value=Even_Tournois.class,name="tournois"),
+	@Type(value=Even_Banquet.class,name="banquet")
+})
 public abstract class Evenement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_evenement")
     protected Integer id;
-	@NotEmpty
+	
+	@NotEmpty(message="Champ obligatoire")
 	protected String nomEven;
-	@NotEmpty
+	
+	@Future
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotEmpty(message="Champ obligatoire")
 	protected LocalDate date;
-	@NotEmpty
+	
+	@NotEmpty(message="Champ obligatoire")
 	protected LocalTime heure;
+	
     @Version
 	private int version;
 	
-	public Evenement() {
-
-	}
+	public Evenement() {}
 
 	public Evenement(String nomEven, LocalDate date, LocalTime heure) {
 		this.nomEven = nomEven;
 		this.date = date;
 		this.heure = heure;
-
 	}
 
 	public Integer getId() {
