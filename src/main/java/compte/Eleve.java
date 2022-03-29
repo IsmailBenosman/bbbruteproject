@@ -64,6 +64,10 @@ public class Eleve  extends Compte{
 		return "Eleve [mesCours=" + mesCours + ", id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login
 				+ ", password=" + password + ", naissance=" + naissance + ", solde=" + solde + ", img=" + img + "]";
 	}
+	
+	public String getIdentite() {
+		return nom+ " "+prenom;
+	}
 
 }
 	

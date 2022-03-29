@@ -65,5 +65,16 @@ public class EleveService {
 		moduleRepository.deleteByEleve(e);
 		eleveRepository.delete(e);
 	}
+	public void delete(Integer id) {
+		eleveRepository.deleteById(id);
+	}
+	
+	public Eleve save(Eleve eleve) {
+		if (eleve.getId() != null) {
+			Eleve eleveEnBase = getById(eleve.getId());
+			eleve.setVersion(eleveEnBase.getVersion());
+		}
+		return eleveRepository.save(eleve);
+	}
 
 }
