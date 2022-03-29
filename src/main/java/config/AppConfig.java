@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource("classpath:infos.properties")
 @EnableTransactionManagement
-@ComponentScan({"boutique","compte","event","module","produit"})
+@ComponentScan({"boutique","compte","event","module","produit","service"})
 @EnableJpaRepositories({"repositories"})
 public class AppConfig {
 
@@ -51,7 +51,7 @@ public class AppConfig {
 	private Properties jpaProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 		properties.setProperty("hibernate.format_sql", "true");
 		return properties;

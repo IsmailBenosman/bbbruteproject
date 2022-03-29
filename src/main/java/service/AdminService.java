@@ -53,12 +53,6 @@ public Admin getById (Integer id) {
 	return adminRepository.findById(id).orElseThrow(()->{
 		throw new AdminException("numero inconnu");
 	});
-}
-
-public Admin findByMaison (Integer id) {
-	return adminRepository.findByMaison(id).orElseThrow(()->{
-		throw new AdminException("Numero �tudiant non attribu�");
-	}	);
 }	
 
 

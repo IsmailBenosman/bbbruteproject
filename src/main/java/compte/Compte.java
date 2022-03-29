@@ -21,7 +21,7 @@ import javax.validation.constraints.Past;
 public abstract class Compte {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id_compte")
 	protected Integer id;
 	

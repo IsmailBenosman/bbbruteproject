@@ -16,19 +16,6 @@ public class BoutiqueService {
 	@Autowired
 	private BoutiqueRepository boutiqueRepository;
 	
-	@Autowired
-	private BoutiqueRepository boutiqueRepository;
-	@Autowired
-	private BoutiqueRepository boutiqueRepository;
-	@Autowired
-	private BoutiqueRepository boutiqueRepository;
-	@Autowired
-	private BoutiqueRepository boutiqueRepository;
-	@Autowired
-	private BoutiqueRepository boutiqueRepository;
-	@Autowired
-	private BoutiqueRepository boutiqueRepository;
-	
 
 	public void create(Boutique b) {
 		boutiqueRepository.save(b);

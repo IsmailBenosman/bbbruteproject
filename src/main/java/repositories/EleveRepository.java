@@ -11,12 +11,8 @@ import compte.Eleve;
 
 public interface EleveRepository extends JpaRepository<Eleve, Integer>{
 	
-	
-	// chercher les eleves par maison en fonctiond e son id. 
-	@Query("select e from Eleve e left join fetch e.maison where c.id=:id")
-	Optional<Eleve> findByMaison(@Param("id") Integer id);
 
-	@Query("select e from Eleve e left join fetch e.module where c.id=:id")
+	@Query("select e from Eleve e left join fetch e.mesCours where e.id=:id")
 	Optional<Eleve> findByIdWithModule(Integer id);
 	
 		

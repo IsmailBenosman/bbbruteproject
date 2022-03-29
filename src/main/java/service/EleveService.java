@@ -55,11 +55,6 @@ public class EleveService {
 		});
 	}
 
-	public Eleve findByMaison(Integer id) {
-		return eleveRepository.findByMaison(id).orElseThrow(() -> {
-			throw new EleveException("Numero �tudiant non attribu�");
-		});
-	}
 
 	public void delete(Eleve e) {
 		moduleRepository.deleteByEleve(e);
