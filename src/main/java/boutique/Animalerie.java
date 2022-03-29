@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class Animalerie extends Boutique{
 
 	@Enumerated(EnumType.STRING)

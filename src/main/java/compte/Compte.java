@@ -13,26 +13,34 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','prof','admin')")
 @Table(name="compte")
 public abstract class Compte {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name="id_compte")
 	protected Integer id;
+	
 	@NotEmpty (message = "Champ obligatoire")
     protected String nom;
+	
 	@NotEmpty(message = "Champ obligatoire")
     protected String prenom;
+	
 	@NotEmpty(message = "Champ obligatoire")
     protected String login;
+	
 	@NotEmpty(message = "Champ obligatoire")
     protected String password;
+	
+	@Past
 	@NotEmpty(message = "Champ obligatoire")
     protected LocalDate naissance;
+	
     protected double solde;
     protected String img;
 	private String maison;

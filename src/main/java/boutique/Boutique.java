@@ -11,6 +11,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -20,6 +22,7 @@ import Json.JsonViews;
 import produit.Produit;
 
 @Entity
+@Component
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name="boutiques")
 @JsonTypeInfo(use=JsonTypeInfo.Id.NAME,include=JsonTypeInfo.As.PROPERTY, property="type")
