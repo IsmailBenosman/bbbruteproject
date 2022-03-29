@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:infos.properties")
 @EnableTransactionManagement
 @ComponentScan({"boutique","compte","event","module","produit"})
-@EnableJpaRepositories({ "repositories" })
+@EnableJpaRepositories({"repositories"})
 public class AppConfig {
 
 	@Autowired

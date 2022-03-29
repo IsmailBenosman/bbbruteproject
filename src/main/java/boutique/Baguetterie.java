@@ -8,12 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 import Json.JsonViews;
 import produit.Produit;
 
 @Entity
+@Component
 @Table(name="baguetterie")
 public class Baguetterie extends Boutique{
 	
