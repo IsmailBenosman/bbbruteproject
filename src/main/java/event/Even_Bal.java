@@ -24,6 +24,7 @@ public class Even_Bal extends Evenement{
 		this.invite = invite;
 	}
 
+	
 	public List<Eleve> getInvite() {
 		return invite;
 	}

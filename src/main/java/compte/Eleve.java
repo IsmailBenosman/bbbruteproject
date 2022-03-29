@@ -27,15 +27,15 @@ public class Eleve  extends Compte{
   	@OneToMany(mappedBy = "eleve", fetch = FetchType.EAGER)
 	private List<Modules> mesCours;
 
-  	@JoinColumn(name="participant")
+  	@JoinColumn(name="participant_tournoi")
   	@ManyToOne
   	private Even_Tournois tournoi;
 	
-  	@JoinColumn(name="participant")
+  	@JoinColumn(name="participant_bal")
   	@ManyToOne
   	private Even_Bal bal;
   	
-  	@JoinColumn(name="participant")
+  	@JoinColumn(name="participant_banquet")
   	@ManyToOne
   	private Even_Banquet banquet;
   	public Eleve() {
