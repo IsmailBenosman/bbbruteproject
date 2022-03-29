@@ -6,8 +6,6 @@ import boutique.Boutique;
 import produit.Produit;
 
 
-public interface BoutiqueRepository extends JpaRepository<Boutique, Integer>{
-
-	
+public interface BaguetterieRepository extends JpaRepository<Produit, Integer>{
 
 }
