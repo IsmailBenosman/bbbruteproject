@@ -24,7 +24,7 @@ import module.Modules;
 public class Eleve  extends Compte{
 	
 
-  	@OneToMany(mappedBy = "eleve", fetch = FetchType.EAGER)
+  	@OneToMany(mappedBy = "eleve")
 	private List<Modules> mesCours;
 
   	@JoinColumn(name="participant_tournoi")

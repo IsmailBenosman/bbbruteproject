@@ -1,9 +1,10 @@
 package test;
 
 import java.time.LocalDate;
-
+import static org.junit.jupiter.api.Assertions.*;
 import javax.transaction.Transactional;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ class AppTest {
 	@Autowired
 	EleveService eleveService;
 	
+	@Disabled
 	@Test
 	@Transactional
 	@Rollback
@@ -32,4 +34,8 @@ class AppTest {
 		eleveService.create(e2);
 	}
 
+	@Test
+	void eleveservicetest() {
+		assertNotNull(eleveService);
+	}
 }
