@@ -1,7 +1,6 @@
 package compte;
 
 import java.time.LocalDate;
-import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -11,11 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type_compte",columnDefinition = "ENUM('eleve','prof','admin')")
@@ -26,10 +23,15 @@ public abstract class Compte {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_compte")
 	protected Integer id;
+	@NotEmpty (message = "Champ obligatoire")
     protected String nom;
+	@NotEmpty(message = "Champ obligatoire")
     protected String prenom;
+	@NotEmpty(message = "Champ obligatoire")
     protected String login;
+	@NotEmpty(message = "Champ obligatoire")
     protected String password;
+	@NotEmpty(message = "Champ obligatoire")
     protected LocalDate naissance;
     protected double solde;
     protected String img;
@@ -167,10 +169,6 @@ public abstract class Compte {
 	public void setImg(String img) {
 		this.img = img;
 	}
-
-
-	
-
 
 	@Override
 	public String toString() {
