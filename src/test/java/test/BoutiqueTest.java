@@ -32,7 +32,7 @@ class BoutiqueTest {
 	@Autowired
 	ProduitService produitService;
 	
-	@Disabled
+
 	@Test
 	@Transactional
 	@Commit
@@ -47,7 +47,7 @@ class BoutiqueTest {
 	void boutiqueservicetest() {
 		assertNotNull(boutiqueService);
 	}
-	@Disabled
+	
 	@Test
 	@Transactional
 	@Commit

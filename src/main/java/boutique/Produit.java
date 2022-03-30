@@ -18,7 +18,7 @@ public class Produit {
 	
 	@JsonView(JsonViews.Common.class)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
 	
 	@ManyToOne
