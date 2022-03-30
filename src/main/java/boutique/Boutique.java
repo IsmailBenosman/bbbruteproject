@@ -31,7 +31,7 @@ public class Boutique {
 
 	@JsonView(JsonViews.Common.class)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@JsonView(JsonViews.Common.class)
