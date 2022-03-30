@@ -7,13 +7,7 @@ import org.springframework.stereotype.Service;
 
 import boutique.Boutique;
 import exception.BoutiqueException;
-import repositories.AnimalerieRepository;
-import repositories.BaguetterieRepository;
-import repositories.BalaiterieRepository;
-import repositories.BarRepository;
 import repositories.BoutiqueRepository;
-import repositories.ConfiserieRepository;
-
 
 @Service
 public class BoutiqueService {
@@ -21,21 +15,6 @@ public class BoutiqueService {
 	@Autowired
 	private BoutiqueRepository boutiqueRepository;
 
-	@Autowired
-	private AnimalerieRepository animalerieRepository;
-	
-	@Autowired
-	private BaguetterieRepository baguetterieRepository;
-	
-	@Autowired
-	private BalaiterieRepository balaiterieRepository;
-	
-	@Autowired
-	private ConfiserieRepository confiserieRepository;
-	
-	@Autowired
-	private BarRepository barRepository;
-	
 
 	public void create(Boutique b) {
 		boutiqueRepository.save(b);
@@ -48,8 +27,7 @@ public class BoutiqueService {
 	public List<Boutique> getAll() {
 		return boutiqueRepository.findAll();
 	}
-
-
+	
 	public Boutique getById(Integer id) {
 		return boutiqueRepository.findById(id).orElseThrow(BoutiqueException::new);
 	}
@@ -57,6 +35,7 @@ public class BoutiqueService {
 	public Boutique save(Boutique boutique) {
 		if (boutique.getId() != null) {
 			Boutique boutiqueEnBase = getById(boutique.getId());
+			boutique.setVersion(boutiqueEnBase.getVersion());
 		}
 		return boutiqueRepository.save(boutique);
 	}

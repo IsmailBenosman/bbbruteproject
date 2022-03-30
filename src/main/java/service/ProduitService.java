@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import boutique.Produit;
 import exception.ModuleException;
-import produit.Produit;
-import boutique.Boutique;
+import exception.ProduitException;
 import repositories.ProduitRepository;
 
 
@@ -28,6 +28,7 @@ public class ProduitService {
 	public List<Produit> getAll() {
 		return produitRepository.findAll();
 	}
+
 
 	public Produit getById(Integer id) {
 		return produitRepository.findById(id).orElseThrow(() -> {
