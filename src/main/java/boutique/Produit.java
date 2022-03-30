@@ -37,7 +37,7 @@ public class Produit {
 	private String img;
 
 	@Version
-	private int verion;
+	private int version;
 	
 	public Produit() {
 	}
@@ -99,11 +99,11 @@ public class Produit {
 	}
 
 	public int getVerion() {
-		return verion;
+		return version;
 	}
 
 	public void setVerion(int verion) {
-		this.verion = verion;
+		this.version = verion;
 	}
 	
 	

@@ -2,48 +2,55 @@ package event;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import compte.Eleve;
 
 @Entity
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
-@JsonTypeInfo(use=JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY,property = "type")
-@JsonSubTypes({
-	@Type(value=Even_Bal.class,name="bal"),
-	@Type(value=Even_Tournois.class,name="tournois"),
-	@Type(value=Even_Banquet.class,name="banquet")
-})
-public abstract class Evenement {
+@DiscriminatorValue("evenements")
+@Table(name = "evenements")
+public class Evenement {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_evenement")
-    protected Integer id;
+	private Integer id;
 	
 	@NotEmpty(message="Champ obligatoire")
-	protected String nomEven;
+	@Column(name="evenement")
+	private String nomEven;
 	
 	@Future
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotEmpty(message="Champ obligatoire")
-	protected LocalDate date;
+	private LocalDate date;
 	
 	@NotEmpty(message="Champ obligatoire")
-	protected LocalTime heure;
+	private LocalTime heure;
+	
+	@ManyToMany
+  	@JoinTable(
+			name="participant_event",
+			joinColumns = @JoinColumn(name="participant"),
+			inverseJoinColumns = @JoinColumn(name="event")
+			)
+	private List<Eleve> participants;
 	
     @Version
 	private int version;
@@ -96,10 +103,14 @@ public abstract class Evenement {
 		this.version = version;
 	}
 
-	@Override
-	public String toString() {
-		return "Evenement [nomEven=" + nomEven + ", date=" + date + ", heure=" + heure + "]";
-	}	
+	public List<Eleve> getParticipants() {
+		return participants;
+	}
 
+	public void setParticipants(List<Eleve> participants) {
+		this.participants = participants;
+	}
+
+	
 	
 }

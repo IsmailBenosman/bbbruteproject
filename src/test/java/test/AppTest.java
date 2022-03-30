@@ -25,7 +25,7 @@ class AppTest {
 	@Autowired
 	EleveService eleveService;
 	
-
+	@Disabled
 	@Test
 	@Transactional
 	@Commit
@@ -40,5 +40,4 @@ class AppTest {
 	void eleveservicetest() {
 		assertNotNull(eleveService);
 	}
-	
 }
